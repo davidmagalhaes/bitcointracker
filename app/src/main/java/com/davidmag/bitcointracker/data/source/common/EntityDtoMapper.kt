@@ -1,4 +1,4 @@
-package br.com.softbuilder.patronuskiosk.data.source.common
+package com.davidmag.bitcointracker.data.source.common
 
 abstract class EntityDtoMapper<Entity, Dto> {
     abstract val toDtoMapper : (Entity) -> Dto

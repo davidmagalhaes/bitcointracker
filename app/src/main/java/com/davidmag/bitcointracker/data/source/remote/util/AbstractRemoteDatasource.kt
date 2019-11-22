@@ -1,4 +1,4 @@
-package br.com.softbuilder.patronuskiosk.data.source.remote.util
+package com.davidmag.bitcointracker.data.source.remote.util
 
 import com.davidmag.bitcointracker.infrastructure.App
 import retrofit2.Call

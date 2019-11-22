@@ -4,6 +4,7 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.davidmag.bitcointracker.BuildConfig
+import com.davidmag.bitcointracker.data.source.local.LocalDatabase
 import com.facebook.stetho.Stetho
 import io.reactivex.plugins.RxJavaPlugins
 import java.util.*
@@ -63,6 +64,6 @@ class App : Application() {
     }
 
     private fun initLocalDatabase(){
-        //LocalDatabase(this)
+        LocalDatabase(this)
     }
 }

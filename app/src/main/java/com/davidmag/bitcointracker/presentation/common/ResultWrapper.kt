@@ -1,4 +1,4 @@
-package sb.sbsyszonaagente.presentation.util
+package com.davidmag.bitcointracker.presentation.common
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.LiveDataReactiveStreams

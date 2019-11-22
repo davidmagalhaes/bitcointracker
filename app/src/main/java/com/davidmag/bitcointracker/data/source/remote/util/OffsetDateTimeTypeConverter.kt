@@ -1,4 +1,4 @@
-package br.com.softbuilder.patronuskiosk.data.source.remote.util
+package com.davidmag.bitcointracker.data.source.remote.util
 
 import androidx.room.TypeConverter
 import org.threeten.bp.OffsetDateTime

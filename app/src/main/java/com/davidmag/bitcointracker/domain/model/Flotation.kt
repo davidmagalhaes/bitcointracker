@@ -5,5 +5,5 @@ import java.math.BigDecimal
 
 data class Flotation (
     val date : OffsetDateTime,
-    val value : BigDecimal
+    val price : BigDecimal
 )
