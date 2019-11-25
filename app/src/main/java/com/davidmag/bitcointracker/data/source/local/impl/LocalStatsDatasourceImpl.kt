@@ -16,9 +16,9 @@ class LocalStatsDatasourceImpl(
         }
     }
 
-    override fun cache(data: List<Stats>): Maybe<out Any> {
+    override fun cache(data: Stats): Maybe<out Any> {
         return Maybe.fromCallable {
-            statsDao.cache(*LocalStatsMapper.toDto(data).toTypedArray())
+            statsDao.cache(LocalStatsMapper.toDto(data))
         }
     }
 }

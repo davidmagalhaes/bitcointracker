@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">BitcoinTracker</string>
+    <string name="loadDataButton"></string>
+    <string name="refreshhint">Pull it to refresh!</string>
+    <string name="preco">Cotação do bitcoin (US$)</string>
+    <string name="daily_flotation">Flutuação Diária</string>
 </resources>

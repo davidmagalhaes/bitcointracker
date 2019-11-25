@@ -7,11 +7,15 @@ import androidx.room.Transaction
 import com.davidmag.bitcointracker.data.source.local.dto.FlotationDb
 import com.davidmag.bitcointracker.data.source.local.util.BaseDao
 import io.reactivex.Flowable
+import io.reactivex.Maybe
 
 @Dao
 interface FlotationDao : BaseDao<FlotationDb> {
-    @Query("select * from FlotationDb")
+    @Query("select * from FlotationDb order by price desc")
     fun get() : Flowable<List<FlotationDb>>
+
+    @Query("select count(*) from FlotationDb")
+    fun count() : Maybe<Int>
 
     @Transaction
     fun cache(vararg item : FlotationDb){

@@ -22,4 +22,8 @@ class LocalFlotationDatasourceImpl(
         }
     }
 
+    override fun count(): Maybe<Int> {
+        return floatingDao.count()
+    }
+
 }

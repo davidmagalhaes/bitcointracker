@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.davidmag.bitcointracker.BuildConfig
 import com.davidmag.bitcointracker.data.source.local.LocalDatabase
+import com.davidmag.bitcointracker.infrastructure.di.DaggerApplicationComponent
 import com.facebook.stetho.Stetho
 import io.reactivex.plugins.RxJavaPlugins
 import java.util.*
@@ -28,15 +29,20 @@ class App : Application() {
         super.onCreate()
     }
 
-    fun init() {
+    private fun init() {
         if(!initialized){
             initialized = true
 
-            initLocalDatabase()
+            instance = this
 
             if(BuildConfig.DEBUG){
                 initStetho()
             }
+
+            DaggerApplicationComponent.builder()
+                .bind(this)
+                .build()
+                .inject(this)
 
             currentLocale.postValue(Locale.getDefault())
             currentLocale.observeForever {
@@ -50,10 +56,6 @@ class App : Application() {
         }
     }
 
-    init {
-        instance = this
-    }
-
     private fun initStetho(){
         Stetho.initialize(
             Stetho.newInitializerBuilder(this)
@@ -61,9 +63,5 @@ class App : Application() {
                 .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
                 .build()
         )
-    }
-
-    private fun initLocalDatabase(){
-        LocalDatabase(this)
     }
 }

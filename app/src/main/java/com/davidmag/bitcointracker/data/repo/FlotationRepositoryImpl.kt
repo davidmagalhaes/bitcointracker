@@ -22,4 +22,8 @@ class FlotationRepositoryImpl(
     override fun get(): Flowable<List<Flotation>> {
         return localDatasource.get().subscribeOn(Schedulers.single())
     }
+
+    override fun count(): Maybe<Int> {
+        return localDatasource.count().subscribeOn(Schedulers.single())
+    }
 }

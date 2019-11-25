@@ -7,4 +7,5 @@ import io.reactivex.Maybe
 interface LocalFlotationDatasource {
     fun get() : Flowable<List<Flotation>>
     fun cache(data : List<Flotation>) : Maybe<out Any>
+    fun count() : Maybe<Int>
 }

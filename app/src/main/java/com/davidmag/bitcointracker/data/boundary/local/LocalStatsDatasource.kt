@@ -6,5 +6,5 @@ import io.reactivex.Maybe
 
 interface LocalStatsDatasource {
     fun get() : Flowable<List<Stats>>
-    fun cache(data : List<Stats>) : Maybe<out Any>
+    fun cache(data : Stats) : Maybe<out Any>
 }
