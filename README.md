@@ -4,7 +4,7 @@
 
 ### Issues
 
-  * The screen shows to little information. It could make more use of its horizontal space.
+  * The screen shows to little information. It could make more use of its horizontal space, by adding more useful information from the API response.
   
 ### To do
 
