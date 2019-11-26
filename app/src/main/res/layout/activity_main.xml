@@ -15,32 +15,31 @@
         android:background="@color/colorBackgroundEnd"
         >
 
-        <TextView
-            android:id="@+id/refreshhint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/swipe_down_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_swipe_down"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/priceCard"
-            android:text="@string/refreshhint"
-            android:textSize="16sp"
-            android:textColor="@color/colorAccent"
-            android:gravity="center|top"
-            >
-
-        </TextView>
+            android:layout_marginTop="8dp"
+            />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/priceCard"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintVertical_weight="1"
-            app:layout_constraintTop_toBottomOf="@id/refreshhint"
+            app:layout_constraintTop_toBottomOf="@id/swipe_down_icon"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/chartCard"
-            android:layout_margin="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="16dp"
             app:cardCornerRadius="2dp"
             >
 
@@ -98,6 +97,7 @@
                 android:id="@+id/flotation_chart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="32dp"
 
                 />
 

@@ -11,7 +11,8 @@ import io.reactivex.Maybe
 
 @Dao
 interface FlotationDao : BaseDao<FlotationDb> {
-    @Query("select * from FlotationDb order by price desc")
+    @Query("select * from FlotationDb where date(date) > date('now', 'start of month') " +
+            "order by date(date) asc")
     fun get() : Flowable<List<FlotationDb>>
 
     @Query("select count(*) from FlotationDb")

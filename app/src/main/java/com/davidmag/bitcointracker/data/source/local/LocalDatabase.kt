@@ -15,7 +15,7 @@ import com.davidmag.bitcointracker.data.source.local.util.BigDecimalConverter
         StatsDb::class,
         FlotationDb::class
     ],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 @TypeConverters(OffsetDateTimeTypeConverter::class, BigDecimalConverter::class)

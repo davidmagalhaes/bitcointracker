@@ -16,7 +16,7 @@ object UnixTimestampJsonDeserializer : JsonDeserializer<OffsetDateTime> {
     ): OffsetDateTime? {
         return if(json != null)
             OffsetDateTime.ofInstant(Instant.ofEpochMilli(
-                json.asJsonPrimitive.asLong),
+                json.asJsonPrimitive.asLong * 1000),
                 ZoneId.systemDefault()
             )
         else null

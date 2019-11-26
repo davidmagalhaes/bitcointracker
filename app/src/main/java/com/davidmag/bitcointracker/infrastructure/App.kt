@@ -20,8 +20,6 @@ class App : Application() {
             private set
 
         val currentLocale = MutableLiveData<Locale>()
-
-        var authToken : String? = ""
     }
 
     override fun onCreate() {

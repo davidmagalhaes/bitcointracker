@@ -11,7 +11,7 @@ object RemoteStatsMapper : EntityDtoMapper<Stats, StatsObject>() {
 
     override val toEntityMapper: (StatsObject) -> Stats = {
         val entity = Stats(
-            updatedAt = it.date,
+            updatedAt = OffsetDateTime.now(),
             price = it.price
         )
 
