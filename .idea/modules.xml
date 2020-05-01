@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/app/Android-bitcointracker-app.iml" filepath="$PROJECT_DIR$/app/Android-bitcointracker-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/BitcoinTracker.iml" filepath="$PROJECT_DIR$/BitcoinTracker.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bitcointracker-BitcoinTracker.iml" filepath="$PROJECT_DIR$/bitcointracker-BitcoinTracker.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/bitcointracker-app.iml" filepath="$PROJECT_DIR$/app/bitcointracker-app.iml" />
     </modules>
   </component>

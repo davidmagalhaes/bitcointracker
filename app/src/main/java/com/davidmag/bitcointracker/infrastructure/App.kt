@@ -4,7 +4,7 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.davidmag.bitcointracker.BuildConfig
-import com.davidmag.bitcointracker.data.source.local.LocalDatabase
+import com.davidmag.bitcointracker.infrastructure.di.ApplicationComponent
 import com.davidmag.bitcointracker.infrastructure.di.DaggerApplicationComponent
 import com.facebook.stetho.Stetho
 import io.reactivex.plugins.RxJavaPlugins
@@ -16,10 +16,9 @@ class App : Application() {
 
         var initialized : Boolean = false
 
-        lateinit var instance : App
-            private set
-
         val currentLocale = MutableLiveData<Locale>()
+
+        lateinit var applicationComponent : ApplicationComponent
     }
 
     override fun onCreate() {
@@ -31,16 +30,15 @@ class App : Application() {
         if(!initialized){
             initialized = true
 
-            instance = this
-
             if(BuildConfig.DEBUG){
                 initStetho()
             }
 
-            DaggerApplicationComponent.builder()
+            applicationComponent = DaggerApplicationComponent.builder()
                 .bind(this)
                 .build()
-                .inject(this)
+
+            applicationComponent.inject(this)
 
             currentLocale.postValue(Locale.getDefault())
             currentLocale.observeForever {

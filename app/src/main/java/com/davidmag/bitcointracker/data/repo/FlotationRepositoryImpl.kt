@@ -14,16 +14,21 @@ class FlotationRepositoryImpl(
 ) : FlotationRepository {
 
     override fun fetch(): Maybe<Any> {
-        return remoteDatasource.fetch().subscribeOn(Schedulers.io()).flatMap {
-            localDatasource.cache(it).subscribeOn(Schedulers.single())
-        }
+        return remoteDatasource.fetch()
+            .subscribeOn(Schedulers.io())
+            .flatMap {
+                localDatasource.cache(it)
+                    .subscribeOn(Schedulers.single())
+            }
     }
 
     override fun get(): Flowable<List<Flotation>> {
-        return localDatasource.get().subscribeOn(Schedulers.single())
+        return localDatasource.get()
+            .subscribeOn(Schedulers.single())
     }
 
     override fun count(): Maybe<Int> {
-        return localDatasource.count().subscribeOn(Schedulers.single())
+        return localDatasource.count()
+            .subscribeOn(Schedulers.single())
     }
 }

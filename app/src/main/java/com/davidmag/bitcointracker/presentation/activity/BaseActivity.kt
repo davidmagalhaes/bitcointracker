@@ -3,17 +3,17 @@ package com.davidmag.bitcointracker.presentation.activity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.davidmag.bitcointracker.infrastructure.App
 import com.davidmag.bitcointracker.infrastructure.di.DaggerApplicationComponent
 import com.davidmag.bitcointracker.presentation.di.DaggerPresentationComponent
 
 abstract class BaseActivity : AppCompatActivity(){
 
-    val presentationComponent by lazy {
-        val applicationComponent = DaggerApplicationComponent
-            .builder()
-            .bind(this)
-            .build()
+    val applicationComponent by lazy {
+        App.applicationComponent
+    }
 
+    val presentationComponent by lazy {
         DaggerPresentationComponent
             .builder()
             .applicationComponent(applicationComponent)

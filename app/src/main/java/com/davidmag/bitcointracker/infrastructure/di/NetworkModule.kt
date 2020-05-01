@@ -13,6 +13,7 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.ConnectionPool
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import org.threeten.bp.OffsetDateTime
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -32,7 +33,8 @@ class NetworkModule {
             .readTimeout(BuildConfig.NETWORK_TIMEOUT, TimeUnit.SECONDS)
             .connectTimeout(BuildConfig.NETWORK_TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(BuildConfig.NETWORK_TIMEOUT, TimeUnit.SECONDS)
-
+            .addInterceptor(HttpLoggingInterceptor()
+                .setLevel(HttpLoggingInterceptor.Level.BASIC))
 
         if(BuildConfig.DEBUG){
             Stetho.initialize(

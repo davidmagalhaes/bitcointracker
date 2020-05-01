@@ -108,7 +108,7 @@ class MainActivity : BaseActivity() {
             set1.values = values
             flotation_chart.data.notifyDataChanged()
             flotation_chart.notifyDataSetChanged()
-        } else {
+        } else if(values.isNotEmpty()) {
             val xVals = arrayOf(*(1..30).toList().map { it.toFloat() }.toTypedArray())
 
 
